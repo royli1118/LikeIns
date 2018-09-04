@@ -46,7 +46,7 @@ class CameraViewController: UIViewController {
         view.endEditing(true)
     }
     
-    func handleSelectPhoto() {
+    @objc func handleSelectPhoto() {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
         pickerController.mediaTypes = ["public.image", "public.movie"]

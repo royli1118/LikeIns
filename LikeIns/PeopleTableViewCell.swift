@@ -63,7 +63,7 @@ class PeopleTableViewCell: UITableViewCell {
         followButton.addTarget(self, action: #selector(self.unFollowAction), for: UIControlEvents.touchUpInside)
     }
     
-    func followAction() {
+    @objc func followAction() {
         if user!.isFollowing! == false {
             Api.Follow.followAction(withUser: user!.id!)
             configureUnFollowButton()
@@ -71,7 +71,7 @@ class PeopleTableViewCell: UITableViewCell {
         }
     }
     
-    func unFollowAction() {
+    @objc func unFollowAction() {
         if user!.isFollowing! == true {
             Api.Follow.unFollowAction(withUser: user!.id!)
             configureFollowButton()
@@ -86,7 +86,7 @@ class PeopleTableViewCell: UITableViewCell {
         nameLabel.isUserInteractionEnabled = true
     }
     
-    func nameLabel_TouchUpInside() {
+    @objc func nameLabel_TouchUpInside() {
         if let id = user?.id {
             delegate?.goToProfileUserVC(userId: id)
         }

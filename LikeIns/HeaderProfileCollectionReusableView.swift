@@ -72,7 +72,7 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
         self.followingCountLabel.text = ""
     }
     
-    func goToSettingVC() {
+    @objc func goToSettingVC() {
         delegate2?.goToSettingVC()
     }
     
@@ -108,7 +108,7 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
         followButton.addTarget(self, action: #selector(self.unFollowAction), for: UIControlEvents.touchUpInside)
     }
     
-    func followAction() {
+    @objc func followAction() {
         if user!.isFollowing! == false {
             Api.Follow.followAction(withUser: user!.id!)
             configureUnFollowButton()
@@ -117,7 +117,7 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
         }
     }
     
-    func unFollowAction() {
+    @objc func unFollowAction() {
         if user!.isFollowing! == true {
             Api.Follow.unFollowAction(withUser: user!.id!)
             configureFollowButton()
