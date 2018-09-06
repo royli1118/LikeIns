@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = .black
         UITabBar.appearance().tintColor = .black
         FIRApp.configure()
+        let date = Date()
+        print(date)
         return true
     }
 

@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>251519161181-s28dso5siur60shdfpmudlr71u9nn9be.apps.googleusercontent.com</string>
+	<string>255010540429-nt3h6j9jpa3kc212ja65tqrdd7qtef28.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.251519161181-s28dso5siur60shdfpmudlr71u9nn9be</string>
+	<string>com.googleusercontent.apps.255010540429-nt3h6j9jpa3kc212ja65tqrdd7qtef28</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDrjWyymoL54KPwujmMQMf1dZ7Ui7aCMls</string>
+	<string>AIzaSyDkdS3Hp1_7gck-1xIdZvAoOHqyXfRsskI</string>
 	<key>GCM_SENDER_ID</key>
-	<string>251519161181</string>
+	<string>255010540429</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.zero2launch.InstagramClone</string>
+	<string>com.unimelb.royli</string>
 	<key>PROJECT_ID</key>
-	<string>instagramclone-fc544</string>
+	<string>insclone-c439d</string>
 	<key>STORAGE_BUCKET</key>
-	<string>instagramclone-fc544.appspot.com</string>
+	<string>insclone-c439d.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:251519161181:ios:07fea6e989626983</string>
+	<string>1:255010540429:ios:4050a4054ae2287a</string>
 	<key>DATABASE_URL</key>
-	<string>https://instagramclone-fc544.firebaseio.com</string>
+	<string>https://insclone-c439d.firebaseio.com</string>
 </dict>
 </plist>

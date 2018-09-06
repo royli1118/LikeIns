@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Firebase
 class User {
     var email: String?
     var profileImageUrl: String?

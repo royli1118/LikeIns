@@ -8,6 +8,8 @@
 
 import UIKit
 import AVFoundation
+import FirebaseAuth
+import FirebaseCore
 
 protocol HomeTableViewCellDelegate {
     func goToCommentVC(postId: String)
@@ -121,6 +123,7 @@ class HomeTableViewCell: UITableViewCell {
         let tapGestureForNameLabel = UITapGestureRecognizer(target: self, action: #selector(self.nameLabel_TouchUpInside))
         nameLabel.addGestureRecognizer(tapGestureForNameLabel)
         nameLabel.isUserInteractionEnabled = true
+
     }
     
     
@@ -152,7 +155,6 @@ class HomeTableViewCell: UITableViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        print("11111")
         profileImageView.image = UIImage(named: "placeholderImg")
         playerLayer?.removeFromSuperlayer()
         player?.pause()

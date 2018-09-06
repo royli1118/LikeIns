@@ -9,6 +9,7 @@ import Foundation
 import FirebaseDatabase
 import FirebaseAuth
 class UserApi {
+    
     var REF_USERS = FIRDatabase.database().reference().child("users")
     
     func observeUserByUsername(username: String, completion: @escaping (User) -> Void) {

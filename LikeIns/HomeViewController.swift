@@ -7,6 +7,7 @@
     
 import UIKit
 import SDWebImage
+
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -59,7 +60,7 @@ class HomeViewController: UIViewController {
         
         if segue.identifier == "Home_ProfileSegue" {
             let profileVC = segue.destination as! ProfileUserViewController
-            let userId = sender  as! String
+            let userId = sender as! String
             profileVC.userId = userId
         }
     }

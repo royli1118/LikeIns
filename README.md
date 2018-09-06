@@ -2,5 +2,5 @@
 
 Reference: http://zero2launch.io/p/swift-4-firebase-4-clone-instagram
 
-Do some changes later.
+1. Set up the Firebase console
 

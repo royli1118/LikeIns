@@ -13,6 +13,10 @@ class CameraViewController: UIViewController {
     @IBOutlet weak var captionTextView: UITextView!
     @IBOutlet weak var removeButton: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var imageView: UIImageView!
+    
+    let imagePicker = UIImagePickerController()
+    
     var selectedImage: UIImage?
     var videoUrl: URL?
     override func viewDidLoad() {
@@ -21,6 +25,9 @@ class CameraViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleSelectPhoto))
         photo.addGestureRecognizer(tapGesture)
         photo.isUserInteractionEnabled = true
+        imagePicker.delegate = self
+        imagePicker.sourceType = .camera
+        imagePicker.allowsEditing = true
         
     }
     
@@ -41,6 +48,16 @@ class CameraViewController: UIViewController {
 
         }
     }
+    
+    
+    
+    
+    @IBAction func cameraTapped(_ sender: UIBarButtonItem) {
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
