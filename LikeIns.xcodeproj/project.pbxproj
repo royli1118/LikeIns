@@ -145,6 +145,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B0D75496214168DA00C57895 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FCE72C111DEB5C710055E3DB /* Assets.xcassets */,
+				FCE4AAF31DFC4E9A0088E503 /* GoogleService-Info.plist */,
+				FCE72C161DEB5C710055E3DB /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		FC09DF9D1DFC45170047703F /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,12 +251,10 @@
 				FC2AAF211E71C48E00217B9B /* HashTagApi.swift */,
 				FCE04C4D1E157F6A007D7A19 /* Views */,
 				FC0A41051E1047AA00510BC7 /* Model */,
+				B0D75496214168DA00C57895 /* Resources */,
 				FC09DF9E1DFC45280047703F /* ViewControllers */,
 				FC09DF9D1DFC45170047703F /* Storyboards */,
-				FCE72C111DEB5C710055E3DB /* Assets.xcassets */,
 				FCE72C131DEB5C710055E3DB /* LaunchScreen.storyboard */,
-				FCE4AAF31DFC4E9A0088E503 /* GoogleService-Info.plist */,
-				FCE72C161DEB5C710055E3DB /* Info.plist */,
 			);
 			path = LikeIns;
 			sourceTree = "<group>";
