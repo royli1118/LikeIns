@@ -79,6 +79,11 @@
                                 <action selector="remove_TouchUpInside:" destination="HT0-3V-yV6" id="IGg-uA-bZm"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="camera" id="tHe-93-AYs">
+                            <connections>
+                                <action selector="cameraTapped:" destination="HT0-3V-yV6" id="uWd-XU-m7X"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="captionTextView" destination="e3I-DW-326" id="MMV-Su-bHR"/>

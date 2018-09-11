@@ -108,19 +108,19 @@ extension CameraViewController: UIImagePickerControllerDelegate, UINavigationCon
         print("did Finish Picking Media")
         print(info)
         
-        if let videoUrl = info["UIImagePickerControllerMediaURL"] as? URL {
+        if let videoUrl = info[UIImagePickerControllerMediaURL] as? URL {
             if let thumnailImage = self.thumbnailImageForFileUrl(videoUrl) {
                 selectedImage = thumnailImage
                 photo.image = thumnailImage
                 self.videoUrl = videoUrl
             }
-            dismiss(animated: true, completion: nil)
+            imagePicker.dismiss(animated: true, completion: nil)
         }
         
-        if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage{
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage{
             selectedImage = image
             photo.image = image
-            dismiss(animated: true, completion: { 
+            imagePicker.dismiss(animated: true, completion: {
                 self.performSegue(withIdentifier: "filter_segue", sender: nil)
             })
         }
