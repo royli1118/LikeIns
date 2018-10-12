@@ -10,13 +10,13 @@ protocol PeopleTableViewCellDelegate {
     func goToProfileUserVC(userId: String)
 }
 class PeopleTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var followButton: UIButton!
     
     var delegate: PeopleTableViewCellDelegate?
-    var user: User? {
+    var user: UserProfile? {
         didSet {
             updateView()
         }
@@ -45,10 +45,10 @@ class PeopleTableViewCell: UITableViewCell {
         followButton.layer.cornerRadius = 5
         followButton.clipsToBounds = true
         
-        followButton.setTitleColor(UIColor.white, for: UIControlState.normal)
+        followButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
         followButton.backgroundColor = UIColor(red: 69/255, green: 142/255, blue: 255/255, alpha: 1)
-        followButton.setTitle("Follow", for: UIControlState.normal)
-        followButton.addTarget(self, action: #selector(self.followAction), for: UIControlEvents.touchUpInside)
+        followButton.setTitle("Follow", for: UIControl.State.normal)
+        followButton.addTarget(self, action: #selector(self.followAction), for: UIControl.Event.touchUpInside)
     }
     
     func configureUnFollowButton() {
@@ -57,10 +57,10 @@ class PeopleTableViewCell: UITableViewCell {
         followButton.layer.cornerRadius = 5
         followButton.clipsToBounds = true
         
-        followButton.setTitleColor(UIColor.black, for: UIControlState.normal)
+        followButton.setTitleColor(UIColor.black, for: UIControl.State.normal)
         followButton.backgroundColor = UIColor.clear
-        followButton.setTitle("Following", for: UIControlState.normal)
-        followButton.addTarget(self, action: #selector(self.unFollowAction), for: UIControlEvents.touchUpInside)
+        followButton.setTitle("Following", for: UIControl.State.normal)
+        followButton.addTarget(self, action: #selector(self.unFollowAction), for: UIControl.Event.touchUpInside)
     }
     
     @objc func followAction() {
@@ -91,11 +91,11 @@ class PeopleTableViewCell: UITableViewCell {
             delegate?.goToProfileUserVC(userId: id)
         }
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
+    
 }

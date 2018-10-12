@@ -32,12 +32,13 @@ extension Post {
         post.likes = dict["likes"] as? Dictionary<String, Any>
         post.ratio = dict["ratio"] as? CGFloat
         post.datetime = dict["datetime"] as? Date
-        if let currentUserId = FIRAuth.auth()?.currentUser?.uid {
+        if let currentUserId = Auth.auth().currentUser?.uid {
             if post.likes != nil {
                 post.isLiked = post.likes![currentUserId] != nil
             }
         }
-      
+        //        if let c = FIRAuth.auth()
+        
         return post
     }
     

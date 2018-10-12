@@ -22,38 +22,66 @@ class HelperService {
         }
     }
     
+    // rewrite the function and remove the obsoleted function
     static func uploadVideoToFirebaseStorage(videoUrl: URL, onSuccess: @escaping (_ videoUrl: String) -> Void) {
         let videoIdString = NSUUID().uuidString
-        let storageRef = FIRStorage.storage().reference(forURL: Config.STORAGE_ROOF_REF).child("posts").child(videoIdString)
-        storageRef.putFile(videoUrl, metadata: nil) { (metadata, error) in
-            if error != nil {
+        let storageRef = Storage.storage().reference(forURL: Config.STORAGE_ROOF_REF).child("posts").child(videoIdString)
+        
+        storageRef.putFile(from: videoUrl, metadata: nil) { (metadata, error) in
+            if error != nil{
                 ProgressHUD.showError(error!.localizedDescription)
-                return
             }
-            if let videoUrl = metadata?.downloadURL()?.absoluteString {
+            storageRef.downloadURL{ (url, error) in
+                guard let videoUrl = url?.absoluteString else {
+                    // Uh-oh, an error occurred!
+                    return
+                }
                 onSuccess(videoUrl)
             }
         }
+        //        storageRef.putFile(from: videoUrl, metadata: nil) { (metadata, error) in
+        //            if error != nil {
+        //                ProgressHUD.showError(error!.localizedDescription)
+        //                return
+        //            }
+        //            if let videoUrl = metadata?.downloadURL()?.absoluteString {
+        //                onSuccess(videoUrl)
+        //            }
+        //        }
     }
     
+    // rewrite the function and remove the obsoleted function
     static func uploadImageToFirebaseStorage(data: Data, onSuccess: @escaping (_ imageUrl: String) -> Void) {
         let photoIdString = NSUUID().uuidString
-        let storageRef = FIRStorage.storage().reference(forURL: Config.STORAGE_ROOF_REF).child("posts").child(photoIdString)
-        storageRef.put(data, metadata: nil) { (metadata, error) in
-            if error != nil {
+        let storageRef = Storage.storage().reference(forURL: Config.STORAGE_ROOF_REF).child("posts").child(photoIdString)
+        
+        storageRef.putData(data, metadata: nil) { (metadata, error) in
+            if error != nil{
                 ProgressHUD.showError(error!.localizedDescription)
-                return
             }
-            if let photoUrl = metadata?.downloadURL()?.absoluteString {
+            storageRef.downloadURL{ (url, error) in
+                guard let photoUrl = url?.absoluteString else {
+                    // Uh-oh, an error occurred!
+                    return
+                }
                 onSuccess(photoUrl)
             }
-            
         }
+        
+        //        storageRef.putData(data, metadata: nil) { (metadata, error) in
+        //            if error != nil {
+        //                ProgressHUD.showError(error!.localizedDescription)
+        //                return
+        //            }
+        //            if let photoUrl = metadata?.downloadURL()?.absoluteString {
+        //                onSuccess(photoUrl)
+        //            }
+        
     }
     
     static func sendDataToDatabase(photoUrl: String, videoUrl: String? = nil, ratio: CGFloat, caption: String, onSuccess: @escaping () -> Void) {
         let newPostId = Api.Post.REF_POSTS.childByAutoId().key
-        let newPostReference = Api.Post.REF_POSTS.child(newPostId)
+        let newPostReference = Api.Post.REF_POSTS.child(newPostId!)
         
         guard let currentUser = Api.User.CURRENT_USER else {
             return
@@ -66,9 +94,9 @@ class HelperService {
                 word = word.trimmingCharacters(in: CharacterSet.symbols)
                 let newHashReference = Api.HashTag.REF_HASHTAG.child(word.lowercased())
                 newHashReference.setValue([newPostId: true])
-//                let hashTagsRef = DataService.dataService.BASE_REF.child("hashTags").child(postKey)
-//                let data = ["to": "", "by": "\(DataService.dataService.currentUserId!)", "hashTag": word.lowercased(), "comment": self.captionTextView.text] as [String : Any]
-//                hashTagsRef.setValue(data)
+                //                let hashTagsRef = DataService.dataService.BASE_REF.child("hashTags").child(postKey)
+                //                let data = ["to": "", "by": "\(DataService.dataService.currentUserId!)", "hashTag": word.lowercased(), "comment": self.captionTextView.text] as [String : Any]
+                //                hashTagsRef.setValue(data)
             }
         }
         
@@ -84,9 +112,9 @@ class HelperService {
                 return
             }
             
-            Api.Feed.REF_FEED.child(Api.User.CURRENT_USER!.uid).child(newPostId).setValue(true)
+            Api.Feed.REF_FEED.child(Api.User.CURRENT_USER!.uid).child(newPostId!).setValue(true)
             
-            let myPostRef = Api.MyPosts.REF_MYPOSTS.child(currentUserId).child(newPostId)
+            let myPostRef = Api.MyPosts.REF_MYPOSTS.child(currentUserId).child(newPostId!)
             myPostRef.setValue(true, withCompletionBlock: { (error, ref) in
                 if error != nil {
                     ProgressHUD.showError(error!.localizedDescription)

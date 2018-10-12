@@ -7,9 +7,9 @@
 
 import UIKit
 class ProfileViewController: UIViewController {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
-    var user: User!
+    var user: UserProfile!
     var posts: [Post] = []
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +53,7 @@ class ProfileViewController: UIViewController {
             detailVC.postId = postId
         }
     }
-
+    
 }
 
 extension ProfileViewController: UICollectionViewDataSource {
@@ -70,7 +70,7 @@ extension ProfileViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let headerViewCell = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "HeaderProfileCollectionReusableView", for: indexPath) as! HeaderProfileCollectionReusableView
+        let headerViewCell = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderProfileCollectionReusableView", for: indexPath) as! HeaderProfileCollectionReusableView
         if let user = self.user {
             headerViewCell.user = user
             headerViewCell.delegate2 = self

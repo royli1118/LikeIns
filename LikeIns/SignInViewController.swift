@@ -16,7 +16,7 @@ class SignInViewController: UIViewController {
         emailTextField.backgroundColor = UIColor.clear
         emailTextField.tintColor = UIColor.white
         emailTextField.textColor = UIColor.white
-
+        
         let bottomLayerEmail = CALayer()
         bottomLayerEmail.frame = CGRect(x: 0, y: 29, width: 1000, height: 0.6)
         bottomLayerEmail.backgroundColor = UIColor(red: 50/255, green: 50/255, blue: 25/255, alpha: 1).cgColor
@@ -25,7 +25,7 @@ class SignInViewController: UIViewController {
         passwordTextField.backgroundColor = UIColor.clear
         passwordTextField.tintColor = UIColor.white
         passwordTextField.textColor = UIColor.white
-
+        
         let bottomLayerPassword = CALayer()
         bottomLayerPassword.frame = CGRect(x: 0, y: 29, width: 1000, height: 0.6)
         bottomLayerPassword.backgroundColor = UIColor(red: 50/255, green: 50/255, blue: 25/255, alpha: 1).cgColor
@@ -35,7 +35,7 @@ class SignInViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-       view.endEditing(true)
+        view.endEditing(true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -44,20 +44,20 @@ class SignInViewController: UIViewController {
     }
     
     func handleTextField() {
-        emailTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
-        passwordTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
+        emailTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)
+        passwordTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)
         
     }
     
     @objc func textFieldDidChange() {
         guard let email = emailTextField.text, !email.isEmpty,
             let password = passwordTextField.text, !password.isEmpty else {
-                signInButton.setTitleColor(UIColor.lightText, for: UIControlState.normal)
+                signInButton.setTitleColor(UIColor.lightText, for: UIControl.State.normal)
                 signInButton.isEnabled = false
                 return
         }
         
-        signInButton.setTitleColor(UIColor.white, for: UIControlState.normal)
+        signInButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
         signInButton.isEnabled = true
     }
     

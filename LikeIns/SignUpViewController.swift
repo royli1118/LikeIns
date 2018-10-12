@@ -24,7 +24,7 @@ class SignUpViewController: UIViewController {
         usernameTextField.backgroundColor = UIColor.clear
         usernameTextField.tintColor = UIColor.white
         usernameTextField.textColor = UIColor.white
-
+        
         let bottomLayerUsername = CALayer()
         bottomLayerUsername.frame = CGRect(x: 0, y: 29, width: 1000, height: 0.6)
         bottomLayerUsername.backgroundColor = UIColor(red: 50/255, green: 50/255, blue: 25/255, alpha: 1).cgColor
@@ -33,7 +33,7 @@ class SignUpViewController: UIViewController {
         emailTextField.backgroundColor = UIColor.clear
         emailTextField.tintColor = UIColor.white
         emailTextField.textColor = UIColor.white
-
+        
         let bottomLayerEmail = CALayer()
         bottomLayerEmail.frame = CGRect(x: 0, y: 29, width: 1000, height: 0.6)
         bottomLayerEmail.backgroundColor = UIColor(red: 50/255, green: 50/255, blue: 25/255, alpha: 1).cgColor
@@ -62,21 +62,21 @@ class SignUpViewController: UIViewController {
     }
     
     func handleTextField() {
-        usernameTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
-        emailTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
-        passwordTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
+        usernameTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)
+        emailTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)
+        passwordTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)
         
     }
     
     @objc func textFieldDidChange() {
         guard let username = usernameTextField.text, !username.isEmpty, let email = emailTextField.text, !email.isEmpty,
             let password = passwordTextField.text, !password.isEmpty else {
-                signUpButton.setTitleColor(UIColor.lightText, for: UIControlState.normal)
+                signUpButton.setTitleColor(UIColor.lightText, for: UIControl.State.normal)
                 signUpButton.isEnabled = false
                 return
         }
         
-        signUpButton.setTitleColor(UIColor.white, for: UIControlState.normal)
+        signUpButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
         signUpButton.isEnabled = true
     }
     
@@ -92,7 +92,7 @@ class SignUpViewController: UIViewController {
     @IBAction func signUpBtn_TouchUpInside(_ sender: Any) {
         view.endEditing(true)
         ProgressHUD.show("Waiting...", interaction: false)
-        if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
+        if let profileImg = self.selectedImage, let imageData = profileImg.jpegData(compressionQuality: 0.1) {
             AuthService.signUp(username: usernameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, imageData: imageData, onSuccess: {
                 ProgressHUD.showSuccess("Success")
                 self.performSegue(withIdentifier: "signUpToTabbarVC", sender: nil)
@@ -100,7 +100,7 @@ class SignUpViewController: UIViewController {
                 ProgressHUD.showError(errorString!)
             })
         } else {
-             ProgressHUD.showError("Profile Image can't be empty")
+            ProgressHUD.showError("Profile Image can't be empty")
         }
     }
 }

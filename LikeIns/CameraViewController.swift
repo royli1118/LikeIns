@@ -25,9 +25,7 @@ class CameraViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleSelectPhoto))
         photo.addGestureRecognizer(tapGesture)
         photo.isUserInteractionEnabled = true
-        imagePicker.delegate = self
-        imagePicker.sourceType = .camera
-        imagePicker.allowsEditing = true
+
         
     }
     
@@ -38,24 +36,57 @@ class CameraViewController: UIViewController {
     
     func handlePost() {
         if selectedImage != nil {
-           self.shareButton.isEnabled = true
-           self.removeButton.isEnabled = true
+            self.shareButton.isEnabled = true
+            self.removeButton.isEnabled = true
             self.shareButton.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         } else {
-           self.shareButton.isEnabled = false
+            self.shareButton.isEnabled = false
             self.removeButton.isEnabled = false
             self.shareButton.backgroundColor = .lightGray
-
+            
         }
     }
     
-    
-    
-    
-    @IBAction func cameraTapped(_ sender: UIBarButtonItem) {
-        present(imagePicker, animated: true, completion: nil)
+  
+    func showActionSheet() {
+        
+        let actionSheet = UIAlertController(title: "Photo Source", message: nil, preferredStyle: .actionSheet)
+        
+        //photo source - camera
+        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { alertAction in
+            self.showImagePickerForSourceType(.camera)
+        }))
+        
+        //photo source - photo library
+        actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { alertAction in
+            self.showImagePickerForSourceType(.photoLibrary)
+        }))
+        
+        //cancel button
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:nil))
+        
+        present(actionSheet, animated: true, completion: nil)
+        
     }
     
+    func showImagePickerForSourceType(_ sourceType: UIImagePickerController.SourceType) {
+        
+        DispatchQueue.main.async(execute: {
+            //imagePicker.modalPresentationStyle = .currentContext
+            self.imagePicker.sourceType = sourceType
+            self.imagePicker.delegate = self
+            self.imagePicker.allowsEditing = true
+            ////////////////////////////////////////
+            /*
+             We actually have two delegates:UIImagePickerControllerDelegate and UINavigationControllerDelegate. The UINavigationControllerDelegate is required but we do nothing with it.
+             Add the following:
+             */
+            self.imagePicker.delegate = self
+            
+            self.present(self.imagePicker, animated: true, completion: nil)
+        })
+        
+    }
     
     
     
@@ -66,19 +97,19 @@ class CameraViewController: UIViewController {
     @objc func handleSelectPhoto() {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
-        pickerController.mediaTypes = ["public.image", "public.movie"]
-        present(pickerController, animated: true, completion: nil)
+        pickerController.mediaTypes = ["public.image"]
+        showActionSheet()
     }
     @IBAction func shareButton_TouchUpInside(_ sender: Any) {
         view.endEditing(true)
         ProgressHUD.show("Waiting...", interaction: false)
-        if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
+        if let profileImg = self.selectedImage, let imageData = profileImg.jpegData(compressionQuality: 0.1) {
             let ratio = profileImg.size.width / profileImg.size.height
             HelperService.uploadDataToServer(data: imageData, videoUrl: self.videoUrl, ratio: ratio, caption: captionTextView.text!, onSuccess: {
-            self.clean()
-            self.tabBarController?.selectedIndex = 0
-        })
-        
+                self.clean()
+                self.tabBarController?.selectedIndex = 0
+            })
+            
         } else {
             ProgressHUD.showError("Profile Image can't be empty")
         }
@@ -108,19 +139,11 @@ extension CameraViewController: UIImagePickerControllerDelegate, UINavigationCon
         print("did Finish Picking Media")
         print(info)
         
-        if let videoUrl = info[UIImagePickerControllerMediaURL] as? URL {
-            if let thumnailImage = self.thumbnailImageForFileUrl(videoUrl) {
-                selectedImage = thumnailImage
-                photo.image = thumnailImage
-                self.videoUrl = videoUrl
-            }
-            imagePicker.dismiss(animated: true, completion: nil)
-        }
-        
-        if let image = info[UIImagePickerControllerEditedImage] as? UIImage{
+    
+        if let image = info["UIImagePickerControllerEditedImage"] as? UIImage{
             selectedImage = image
             photo.image = image
-            imagePicker.dismiss(animated: true, completion: {
+            dismiss(animated: true, completion: {
                 self.performSegue(withIdentifier: "filter_segue", sender: nil)
             })
         }
@@ -130,7 +153,7 @@ extension CameraViewController: UIImagePickerControllerDelegate, UINavigationCon
         let asset = AVAsset(url: fileUrl)
         let imageGenerator = AVAssetImageGenerator(asset: asset)
         do {
-            let thumbnailCGImage = try imageGenerator.copyCGImage(at: CMTimeMake(7, 1), actualTime: nil)
+            let thumbnailCGImage = try imageGenerator.copyCGImage(at: CMTimeMake(value: 7, timescale: 1), actualTime: nil)
             return UIImage(cgImage: thumbnailCGImage)
         } catch let err {
             print(err)

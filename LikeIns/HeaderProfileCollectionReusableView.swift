@@ -8,7 +8,7 @@
 import UIKit
 
 protocol HeaderProfileCollectionReusableViewDelegate {
-    func updateFollowButton(forUser user: User)
+    func updateFollowButton(forUser user: UserProfile)
 }
 
 protocol HeaderProfileCollectionReusableViewDelegateSwitchSettingVC {
@@ -26,7 +26,7 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
     
     var delegate: HeaderProfileCollectionReusableViewDelegate?
     var delegate2: HeaderProfileCollectionReusableViewDelegateSwitchSettingVC?
-    var user: User? {
+    var user: UserProfile? {
         didSet {
             updateView()
         }
@@ -37,7 +37,7 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
         clear()
     }
     
-    func updateView() {        
+    func updateView() {
         self.nameLabel.text = user!.username
         if let photoUrlString = user!.profileImageUrl {
             let photoUrl = URL(string: photoUrlString)
@@ -45,7 +45,7 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
         }
         
         Api.MyPosts.fetchCountMyPosts(userId: user!.id!) { (count) in
-             self.myPostsCountLabel.text = "\(count)"
+            self.myPostsCountLabel.text = "\(count)"
         }
         
         Api.Follow.fetchCountFollowing(userId: user!.id!) { (count) in
@@ -57,9 +57,9 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
         }
         
         if user?.id == Api.User.CURRENT_USER?.uid {
-            followButton.setTitle("Edit Profile", for: UIControlState.normal)
-            followButton.addTarget(self, action: #selector(self.goToSettingVC), for: UIControlEvents.touchUpInside)
-
+            followButton.setTitle("Edit Profile", for: UIControl.State.normal)
+            followButton.addTarget(self, action: #selector(self.goToSettingVC), for: UIControl.Event.touchUpInside)
+            
         } else {
             updateStateFollowButton()
         }
@@ -90,10 +90,10 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
         followButton.layer.cornerRadius = 5
         followButton.clipsToBounds = true
         
-        followButton.setTitleColor(UIColor.white, for: UIControlState.normal)
+        followButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
         followButton.backgroundColor = UIColor(red: 69/255, green: 142/255, blue: 255/255, alpha: 1)
-        followButton.setTitle("Follow", for: UIControlState.normal)
-        followButton.addTarget(self, action: #selector(self.followAction), for: UIControlEvents.touchUpInside)
+        followButton.setTitle("Follow", for: UIControl.State.normal)
+        followButton.addTarget(self, action: #selector(self.followAction), for: UIControl.Event.touchUpInside)
     }
     
     func configureUnFollowButton() {
@@ -102,10 +102,10 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
         followButton.layer.cornerRadius = 5
         followButton.clipsToBounds = true
         
-        followButton.setTitleColor(UIColor.black, for: UIControlState.normal)
+        followButton.setTitleColor(UIColor.black, for: UIControl.State.normal)
         followButton.backgroundColor = UIColor.clear
-        followButton.setTitle("Following", for: UIControlState.normal)
-        followButton.addTarget(self, action: #selector(self.unFollowAction), for: UIControlEvents.touchUpInside)
+        followButton.setTitle("Following", for: UIControl.State.normal)
+        followButton.addTarget(self, action: #selector(self.unFollowAction), for: UIControl.Event.touchUpInside)
     }
     
     @objc func followAction() {
@@ -125,5 +125,5 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
             delegate?.updateFollowButton(forUser: user!)
         }
     }
-
+    
 }

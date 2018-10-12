@@ -7,7 +7,7 @@
 
 import Foundation
 import Firebase
-class User {
+class UserProfile {
     var email: String?
     var profileImageUrl: String?
     var username: String?
@@ -15,9 +15,9 @@ class User {
     var isFollowing: Bool?
 }
 
-extension User {
-    static func transformUser(dict: [String: Any], key: String) -> User {
-        let user = User()
+extension UserProfile {
+    static func transformUser(dict: [String: Any], key: String) -> UserProfile {
+        let user = UserProfile()
         user.email = dict["email"] as? String
         user.profileImageUrl = dict["profileImageUrl"] as? String
         user.username = dict["username"] as? String

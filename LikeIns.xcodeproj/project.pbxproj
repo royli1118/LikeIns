@@ -44,7 +44,7 @@
 		FCD741C01E6AE0D60006C6A8 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD741BF1E6AE0D60006C6A8 /* FilterViewController.swift */; };
 		FCD741C21E6AE2FB0006C6A8 /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD741C11E6AE2FB0006C6A8 /* FilterCollectionViewCell.swift */; };
 		FCE04C4C1E157F66007D7A19 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE04C4B1E157F66007D7A19 /* HomeTableViewCell.swift */; };
-		FCE04C4F1E159DE0007D7A19 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE04C4E1E159DE0007D7A19 /* User.swift */; };
+		FCE04C4F1E159DE0007D7A19 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE04C4E1E159DE0007D7A19 /* UserProfile.swift */; };
 		FCE4AAF41DFC4E9A0088E503 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FCE4AAF31DFC4E9A0088E503 /* GoogleService-Info.plist */; };
 		FCE72C0B1DEB5C710055E3DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE72C0A1DEB5C710055E3DB /* AppDelegate.swift */; };
 		FCE72C121DEB5C710055E3DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCE72C111DEB5C710055E3DB /* Assets.xcassets */; };
@@ -100,7 +100,7 @@
 		FCD741BF1E6AE0D60006C6A8 /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		FCD741C11E6AE2FB0006C6A8 /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
 		FCE04C4B1E157F66007D7A19 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
-		FCE04C4E1E159DE0007D7A19 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FCE04C4E1E159DE0007D7A19 /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		FCE4AAF31DFC4E9A0088E503 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FCE72C071DEB5C710055E3DB /* LikeIns.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LikeIns.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCE72C0A1DEB5C710055E3DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -194,7 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				FC0A41061E1047B800510BC7 /* Post.swift */,
-				FCE04C4E1E159DE0007D7A19 /* User.swift */,
+				FCE04C4E1E159DE0007D7A19 /* UserProfile.swift */,
 				FC1912A11E22254B00D4CEF2 /* Comment.swift */,
 			);
 			name = Model;
@@ -346,18 +346,22 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-LikeIns/Pods-LikeIns-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/KILabel/KILabel.framework",
 				"${BUILT_PRODUCTS_DIR}/ProgressHUD/ProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KILabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -408,7 +412,7 @@
 				FCD741C01E6AE0D60006C6A8 /* FilterViewController.swift in Sources */,
 				FC1912B21E22584F00D4CEF2 /* Post_CommentApi.swift in Sources */,
 				FC1BB9C51E04782E009EA83B /* AuthService.swift in Sources */,
-				FCE04C4F1E159DE0007D7A19 /* User.swift in Sources */,
+				FCE04C4F1E159DE0007D7A19 /* UserProfile.swift in Sources */,
 				FC6BE14F1E2B8D5400F0EB21 /* MyPostsApi.swift in Sources */,
 				FC23C40D1E3E931900985F49 /* FollowApi.swift in Sources */,
 				FCF75E371E4F75F4001E6276 /* SettingTableViewController.swift in Sources */,
@@ -559,13 +563,13 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 7QPHFNW5DN;
 				INFOPLIST_FILE = "$(SRCROOT)/LikeIns/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.unimelb.royli;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "LinkIns-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -577,12 +581,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 7QPHFNW5DN;
 				INFOPLIST_FILE = "$(SRCROOT)/LikeIns/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.unimelb.royli;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "LinkIns-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};

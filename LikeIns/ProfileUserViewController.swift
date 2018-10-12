@@ -10,7 +10,7 @@ import UIKit
 class ProfileUserViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    var user: User!
+    var user: UserProfile!
     var posts: [Post] = []
     var userId = ""
     var delegate: HeaderProfileCollectionReusableViewDelegate?
@@ -75,7 +75,7 @@ extension ProfileUserViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let headerViewCell = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "HeaderProfileCollectionReusableView", for: indexPath) as! HeaderProfileCollectionReusableView
+        let headerViewCell = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderProfileCollectionReusableView", for: indexPath) as! HeaderProfileCollectionReusableView
         if let user = self.user {
             headerViewCell.user = user
             headerViewCell.delegate = self.delegate

@@ -8,8 +8,5 @@
 import Foundation
 import FirebaseDatabase
 class HashTagApi {
-    var REF_HASHTAG = FIRDatabase.database().reference().child("hashtag")
-    
- 
-    
+    var REF_HASHTAG = Database.database().reference().child("hashtag")
 }

@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseDatabase
 class CommentApi {
-    var REF_COMMENTS = FIRDatabase.database().reference().child("comments")
+    var REF_COMMENTS = Database.database().reference().child("comments")
     
     func observeComments(withPostId id: String, completion: @escaping (Comment) -> Void) {
         REF_COMMENTS.child(id).observeSingleEvent(of: .value, with: {
@@ -19,5 +19,5 @@ class CommentApi {
             }
         })
     }
-
+    
 }

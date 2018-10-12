@@ -12,7 +12,7 @@ protocol SettingTableViewControllerDelegate {
 }
 
 class SettingTableViewController: UITableViewController {
-
+    
     @IBOutlet weak var usernnameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var profileImageView: UIImageView!
@@ -37,9 +37,9 @@ class SettingTableViewController: UITableViewController {
         }
     }
     @IBAction func saveBtn_TouchUpInside(_ sender: Any) {
-        if let profileImg = self.profileImageView.image, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
+        if let profileImg = self.profileImageView.image, let imageData = profileImg.jpegData(compressionQuality: 0.1) {
             ProgressHUD.show("Waiting...")
-            AuthService.updateUserInfor(username: usernnameTextField.text!, email: emailTextField.text!, imageData: imageData, onSuccess: { 
+            AuthService.updateUserInfor(username: usernnameTextField.text!, email: emailTextField.text!, imageData: imageData, onSuccess: {
                 ProgressHUD.showSuccess("Success")
                 self.delegate?.updateUserInfor()
             }, onError: { (errorMessage) in
@@ -47,7 +47,7 @@ class SettingTableViewController: UITableViewController {
             })
         }
     }
-
+    
     @IBAction func logoutBtn_TouchUpInside(_ sender: Any) {
         AuthService.logout(onSuccess: {
             let storyboard = UIStoryboard(name: "Start", bundle: nil)
@@ -62,7 +62,7 @@ class SettingTableViewController: UITableViewController {
         pickerController.delegate = self
         present(pickerController, animated: true, completion: nil)
     }
-
+    
 }
 
 extension SettingTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {

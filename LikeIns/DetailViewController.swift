@@ -8,17 +8,17 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-
+    
     var postId = ""
     var post = Post()
-    var user = User()
+    var user = UserProfile()
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         loadPost()
     }
-
+    
     func loadPost() {
         Api.Post.observePost(withId: postId) { (post) in
             guard let postUid = post.uid else {

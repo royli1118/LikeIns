@@ -7,16 +7,17 @@
 
 import Foundation
 import FirebaseDatabase
+
 class FollowApi {
-    var REF_FOLLOWERS = FIRDatabase.database().reference().child("followers")
-    var REF_FOLLOWING = FIRDatabase.database().reference().child("following")
+    var REF_FOLLOWERS = Database.database().reference().child("followers")
+    var REF_FOLLOWING = Database.database().reference().child("following")
     
     func followAction(withUser id: String) {
         Api.MyPosts.REF_MYPOSTS.child(id).observeSingleEvent(of: .value, with: {
             snapshot in
             if let dict = snapshot.value as? [String: Any] {
                 for key in dict.keys {
-                    FIRDatabase.database().reference().child("feed").child(Api.User.CURRENT_USER!.uid).child(key).setValue(true)
+                    Database.database().reference().child("feed").child(Api.User.CURRENT_USER!.uid).child(key).setValue(true)
                 }
             }
         })
@@ -30,7 +31,7 @@ class FollowApi {
             snapshot in
             if let dict = snapshot.value as? [String: Any] {
                 for key in dict.keys {
-                    FIRDatabase.database().reference().child("feed").child(Api.User.CURRENT_USER!.uid).child(key).removeValue()
+                    Database.database().reference().child("feed").child(Api.User.CURRENT_USER!.uid).child(key).removeValue()
                 }
             }
         })
@@ -56,7 +57,7 @@ class FollowApi {
             let count = Int(snapshot.childrenCount)
             completion(count)
         })
-
+        
     }
     
     func fetchCountFollowers(userId: String, completion: @escaping (Int) -> Void) {

@@ -8,9 +8,9 @@
 import UIKit
 
 class PeopleViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
-    var users: [User] = []
+    var users: [UserProfile] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "People"
@@ -60,7 +60,7 @@ extension PeopleViewController: PeopleTableViewCellDelegate {
 }
 
 extension PeopleViewController: HeaderProfileCollectionReusableViewDelegate {
-    func updateFollowButton(forUser user: User) {
+    func updateFollowButton(forUser user: UserProfile) {
         for u in self.users {
             if u.id == user.id {
                 u.isFollowing = user.isFollowing

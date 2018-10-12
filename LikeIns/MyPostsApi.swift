@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseDatabase
 class MyPostsApi {
-    var REF_MYPOSTS = FIRDatabase.database().reference().child("myPosts")
+    var REF_MYPOSTS = Database.database().reference().child("myPosts")
     
     func fetchMyPosts(userId: String, completion: @escaping (String) -> Void) {
         REF_MYPOSTS.child(userId).observe(.childAdded, with: {

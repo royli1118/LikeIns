@@ -8,10 +8,10 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-
+    
     var searchBar = UISearchBar()
-    var users: [User] = []
-
+    var userProfiles: [UserProfile] = []
+    
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,17 +28,17 @@ class SearchViewController: UIViewController {
     
     func doSearch() {
         if let searchText = searchBar.text?.lowercased() {
-            self.users.removeAll()
+            self.userProfiles.removeAll()
             self.tableView.reloadData()
-                Api.User.queryUsers(withText: searchText, completion: { (user) in
-                    self.isFollowing(userId: user.id!, completed: { (value) in
-                        user.isFollowing = value
-                        
-                        self.users.append(user)
-                        self.tableView.reloadData()
-                        
-                    })
+            Api.User.queryUsers(withText: searchText, completion: { (user) in
+                self.isFollowing(userId: user.id!, completed: { (value) in
+                    user.isFollowing = value
+                    
+                    self.userProfiles.append(user)
+                    self.tableView.reloadData()
+                    
                 })
+            })
         }
     }
     
@@ -54,7 +54,7 @@ class SearchViewController: UIViewController {
             profileVC.delegate = self
         }
     }
-
+    
 }
 
 extension SearchViewController: UISearchBarDelegate {
@@ -69,11 +69,11 @@ extension SearchViewController: UISearchBarDelegate {
 
 extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return users.count
+        return userProfiles.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PeopleTableViewCell", for: indexPath) as! PeopleTableViewCell
-        let user = users[indexPath.row]
+        let user = userProfiles[indexPath.row]
         cell.user = user
         cell.delegate = self
         return cell
@@ -86,8 +86,8 @@ extension SearchViewController: PeopleTableViewCellDelegate {
 }
 
 extension SearchViewController: HeaderProfileCollectionReusableViewDelegate {
-    func updateFollowButton(forUser user: User) {
-        for u in self.users {
+    func updateFollowButton(forUser user: UserProfile) {
+        for u in self.userProfiles {
             if u.id == user.id {
                 u.isFollowing = user.isFollowing
                 self.tableView.reloadData()

@@ -4,7 +4,7 @@
 //
 //  Created by Roy Li on 04/09/2018.
 //
-    
+
 import UIKit
 import SDWebImage
 
@@ -13,11 +13,11 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     var posts = [Post]()
-    var users = [User]()
+    var users = [UserProfile]()
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 521
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.dataSource = self
         loadPosts()
     }

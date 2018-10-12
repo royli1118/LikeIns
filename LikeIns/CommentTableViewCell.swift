@@ -12,7 +12,7 @@ protocol CommentTableViewCellDelegate {
 }
 
 class CommentTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var commentLabel: KILabel!
@@ -24,12 +24,12 @@ class CommentTableViewCell: UITableViewCell {
         }
     }
     
-    var user: User? {
+    var user: UserProfile? {
         didSet {
             setupUserInfo()
         }
     }
-
+    
     func updateView() {
         commentLabel.text = comment?.commentText
         commentLabel.userHandleLinkTapHandler = {
@@ -47,7 +47,7 @@ class CommentTableViewCell: UITableViewCell {
         nameLabel.text = user?.username
         if let photoUrlString = user?.profileImageUrl {
             let photoUrl = URL(string: photoUrlString)
-            profileImageView.sd_setImage(with: photoUrl, placeholderImage: UIImage(named: "placeholderImg"))            
+            profileImageView.sd_setImage(with: photoUrl, placeholderImage: UIImage(named: "placeholderImg"))
         }
     }
     
@@ -73,8 +73,8 @@ class CommentTableViewCell: UITableViewCell {
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
+    
 }

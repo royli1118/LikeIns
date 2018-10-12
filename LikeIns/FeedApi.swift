@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseDatabase
 class FeedApi {
-    var REF_FEED = FIRDatabase.database().reference().child("feed")
+    var REF_FEED = Database.database().reference().child("feed")
     
     func observeFeed(withId id: String, completion: @escaping (Post) -> Void) {
         REF_FEED.child(id).observe(.childAdded, with: {
