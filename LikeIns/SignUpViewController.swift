@@ -22,8 +22,8 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         
         usernameTextField.backgroundColor = UIColor.clear
-        usernameTextField.tintColor = UIColor.white
-        usernameTextField.textColor = UIColor.white
+        usernameTextField.tintColor = UIColor.black
+        usernameTextField.textColor = UIColor.black
         
         let bottomLayerUsername = CALayer()
         bottomLayerUsername.frame = CGRect(x: 0, y: 29, width: 1000, height: 0.6)
@@ -31,8 +31,8 @@ class SignUpViewController: UIViewController {
         usernameTextField.layer.addSublayer(bottomLayerUsername)
         
         emailTextField.backgroundColor = UIColor.clear
-        emailTextField.tintColor = UIColor.white
-        emailTextField.textColor = UIColor.white
+        emailTextField.tintColor = UIColor.black
+        emailTextField.textColor = UIColor.black
         
         let bottomLayerEmail = CALayer()
         bottomLayerEmail.frame = CGRect(x: 0, y: 29, width: 1000, height: 0.6)
@@ -40,8 +40,8 @@ class SignUpViewController: UIViewController {
         emailTextField.layer.addSublayer(bottomLayerEmail)
         
         passwordTextField.backgroundColor = UIColor.clear
-        passwordTextField.tintColor = UIColor.white
-        passwordTextField.textColor = UIColor.white
+        passwordTextField.tintColor = UIColor.black
+        passwordTextField.textColor = UIColor.black
         let bottomLayerPassword = CALayer()
         bottomLayerPassword.frame = CGRect(x: 0, y: 29, width: 1000, height: 0.6)
         bottomLayerPassword.backgroundColor = UIColor(red: 50/255, green: 50/255, blue: 25/255, alpha: 1).cgColor

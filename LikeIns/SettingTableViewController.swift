@@ -51,8 +51,8 @@ class SettingTableViewController: UITableViewController {
     @IBAction func logoutBtn_TouchUpInside(_ sender: Any) {
         AuthService.logout(onSuccess: {
             let storyboard = UIStoryboard(name: "Start", bundle: nil)
-            let signInVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController")
-            self.present(signInVC, animated: true, completion: nil)
+            let startVC = storyboard.instantiateViewController(withIdentifier: "StartViewController")
+            self.present(startVC, animated: true, completion: nil)
         }) { (errorMessage) in
             ProgressHUD.showError(errorMessage)
         }
@@ -66,9 +66,10 @@ class SettingTableViewController: UITableViewController {
 }
 
 extension SettingTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         print("did Finish Picking Media")
-        if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage{
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
             profileImageView.image = image
         }
         dismiss(animated: true, completion: nil)
