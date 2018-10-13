@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "instagram-png-instagram-icon-1600.png",
+      "filename" : "launch-1.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "instagram-png-instagram-icon-1601.png",
+      "filename" : "launch.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "instagram-png-instagram-icon-1602.png",
+      "filename" : "launch-2.png",
       "scale" : "3x"
     }
   ],

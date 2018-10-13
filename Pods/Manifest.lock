@@ -1,4 +1,7 @@
 PODS:
+  - ChameleonFramework (2.1.0):
+    - ChameleonFramework/Default (= 2.1.0)
+  - ChameleonFramework/Default (2.1.0)
   - Firebase/Auth (5.10.0):
     - Firebase/CoreOnly
     - FirebaseAuth (= 5.0.4)
@@ -79,6 +82,7 @@ PODS:
   - SDWebImage/Core (4.4.2)
 
 DEPENDENCIES:
+  - ChameleonFramework (~> 2.1)
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -89,6 +93,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - ChameleonFramework
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -107,6 +112,7 @@ SPEC REPOS:
     - SDWebImage
 
 SPEC CHECKSUMS:
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   Firebase: 6691d47562a780c26281ce8464518faafc90c610
   FirebaseAnalytics: 831f1f127f4a75698e9875a87bf7e2668730d953
   FirebaseAuth: 504b198ceb3472dca5c65bb95544ea44cfc9439e
@@ -124,6 +130,6 @@ SPEC CHECKSUMS:
   ProgressHUD: 54b4c2fa202bf3da7dddc1c698ae4e6376333bd9
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
 
-PODFILE CHECKSUM: 3aa1d0ff067f9fd83c30d2d24390604afd3dd81d
+PODFILE CHECKSUM: f77d71d162d606e9c472b3cf30dd1c60aebae829
 
 COCOAPODS: 1.5.3

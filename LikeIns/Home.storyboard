@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -89,34 +89,6 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view hidden="YES" alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UZ5-nc-mjO">
-                                                    <rect key="frame" x="10" y="345" width="24" height="24"/>
-                                                    <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oxl-hb-zbb">
-                                                            <rect key="frame" x="6.5" y="6.5" width="12" height="12"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="12" id="qOF-sU-5eM"/>
-                                                                <constraint firstAttribute="height" constant="12" id="qgD-RB-hxF"/>
-                                                            </constraints>
-                                                            <state key="normal" image="Icon_Mute"/>
-                                                            <connections>
-                                                                <action selector="volumeButton_TouchUpInSide:" destination="VoG-1z-zvf" eventType="touchUpInside" id="a22-S0-flI"/>
-                                                            </connections>
-                                                        </button>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstItem="Oxl-hb-zbb" firstAttribute="centerX" secondItem="UZ5-nc-mjO" secondAttribute="centerX" id="03r-6w-fe3"/>
-                                                        <constraint firstItem="Oxl-hb-zbb" firstAttribute="centerY" secondItem="UZ5-nc-mjO" secondAttribute="centerY" id="MwE-Yh-wzf"/>
-                                                        <constraint firstAttribute="height" constant="24" id="SXq-kT-d2y"/>
-                                                        <constraint firstAttribute="width" constant="24" id="ubb-OF-aCP"/>
-                                                    </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="12"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="JAf-Ao-6LM" secondAttribute="trailing" id="2mY-W1-530"/>
@@ -129,13 +101,11 @@
                                                 <constraint firstItem="vMY-aN-Ui7" firstAttribute="top" secondItem="JAf-Ao-6LM" secondAttribute="bottom" constant="15" id="Ng6-XT-ZQW"/>
                                                 <constraint firstAttribute="bottom" secondItem="8HR-Am-BIT" secondAttribute="bottom" constant="37" id="Quv-dj-rEJ"/>
                                                 <constraint firstItem="fEI-ug-Ldb" firstAttribute="centerY" secondItem="5Bk-lh-6ZQ" secondAttribute="centerY" id="QzL-dQ-Bzz"/>
-                                                <constraint firstItem="UZ5-nc-mjO" firstAttribute="bottom" secondItem="JAf-Ao-6LM" secondAttribute="bottom" constant="-10" id="XQC-0w-t7o"/>
                                                 <constraint firstItem="YPi-Uv-RhE" firstAttribute="height" secondItem="vMY-aN-Ui7" secondAttribute="height" id="YL1-qN-D1l"/>
                                                 <constraint firstItem="X5F-xv-STt" firstAttribute="leading" secondItem="vMY-aN-Ui7" secondAttribute="trailing" constant="20" id="aiC-XF-Gmc"/>
                                                 <constraint firstItem="X5F-xv-STt" firstAttribute="centerY" secondItem="vMY-aN-Ui7" secondAttribute="centerY" id="cgF-Q6-uXd"/>
                                                 <constraint firstItem="X5F-xv-STt" firstAttribute="height" secondItem="vMY-aN-Ui7" secondAttribute="height" id="db9-O9-4bq"/>
                                                 <constraint firstItem="5Bk-lh-6ZQ" firstAttribute="top" secondItem="2Rz-KO-OMQ" secondAttribute="top" constant="15" id="fO2-L7-j2L"/>
-                                                <constraint firstItem="UZ5-nc-mjO" firstAttribute="leading" secondItem="JAf-Ao-6LM" secondAttribute="leading" constant="10" id="fe7-fc-22M"/>
                                                 <constraint firstItem="YPi-Uv-RhE" firstAttribute="centerY" secondItem="vMY-aN-Ui7" secondAttribute="centerY" id="ib2-dD-jzf"/>
                                                 <constraint firstItem="8HR-Am-BIT" firstAttribute="top" secondItem="7uj-fO-jwZ" secondAttribute="bottom" constant="5" id="jBK-Kj-VCc"/>
                                                 <constraint firstItem="KPh-b5-EB1" firstAttribute="leading" secondItem="2Rz-KO-OMQ" secondAttribute="leading" constant="15" id="kN1-b4-ucD"/>
@@ -159,14 +129,12 @@
                                             <outlet property="postImageView" destination="JAf-Ao-6LM" id="MAn-lZ-PMd"/>
                                             <outlet property="profileImageView" destination="5Bk-lh-6ZQ" id="S40-av-Gz8"/>
                                             <outlet property="shareImageView" destination="YPi-Uv-RhE" id="h9d-el-ehF"/>
-                                            <outlet property="volumeButton" destination="Oxl-hb-zbb" id="vlG-G9-uTm"/>
-                                            <outlet property="volumeView" destination="UZ5-nc-mjO" id="bnn-Yv-TKw"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="W9U-fS-EhU">
-                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -197,7 +165,7 @@
                 <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="ProfileUserViewController" id="uBe-ef-2g2" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kki-ba-Bbe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-88" y="-172"/>
+            <point key="canvasLocation" x="1061" y="-557"/>
         </scene>
         <!--Comment View Controller-->
         <scene sceneID="s7s-ZJ-pFZ">
@@ -334,7 +302,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dS5-Gu-xq7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-162" y="441"/>
+            <point key="canvasLocation" x="438" y="261"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NA5-Al-Kln">
@@ -363,11 +331,10 @@
         <image name="Comment" width="43" height="41"/>
         <image name="Home" width="21" height="23"/>
         <image name="Home_Selected" width="21" height="23"/>
-        <image name="Icon_Mute" width="25" height="25"/>
         <image name="like" width="46" height="41"/>
         <image name="share" width="37" height="41"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ic9-fE-QGT"/>
+        <segue reference="tl5-Cp-x7c"/>
     </inferredMetricsTieBreakers>
 </document>

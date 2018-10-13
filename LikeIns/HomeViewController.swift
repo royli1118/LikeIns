@@ -7,7 +7,6 @@
 
 import UIKit
 import SDWebImage
-
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -19,6 +18,7 @@ class HomeViewController: UIViewController {
         tableView.estimatedRowHeight = 521
         tableView.rowHeight = UITableView.automaticDimension
         tableView.dataSource = self
+        
         loadPosts()
     }
     
@@ -32,12 +32,12 @@ class HomeViewController: UIViewController {
                 self.posts.append(post)
                 self.tableView.reloadData()
             })
+
         }
         
         Api.Feed.observeFeedRemoved(withId: Api.User.CURRENT_USER!.uid) { (post) in
             self.posts = self.posts.filter { $0.id != post.id }
             self.users = self.users.filter { $0.id != post.uid }
-            
             self.tableView.reloadData()
         }
     }
@@ -88,4 +88,5 @@ extension HomeViewController: HomeTableViewCellDelegate {
     func goToProfileUserVC(userId: String) {
         performSegue(withIdentifier: "Home_ProfileSegue", sender: userId)
     }
+    
 }

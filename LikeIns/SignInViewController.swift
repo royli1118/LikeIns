@@ -11,11 +11,12 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
         emailTextField.backgroundColor = UIColor.clear
-        emailTextField.tintColor = UIColor.white
-        emailTextField.textColor = UIColor.white
+        emailTextField.tintColor = UIColor.black
+        emailTextField.textColor = UIColor.black
         
         let bottomLayerEmail = CALayer()
         bottomLayerEmail.frame = CGRect(x: 0, y: 29, width: 1000, height: 0.6)
@@ -23,8 +24,8 @@ class SignInViewController: UIViewController {
         emailTextField.layer.addSublayer(bottomLayerEmail)
         
         passwordTextField.backgroundColor = UIColor.clear
-        passwordTextField.tintColor = UIColor.white
-        passwordTextField.textColor = UIColor.white
+        passwordTextField.tintColor = UIColor.black
+        passwordTextField.textColor = UIColor.black
         
         let bottomLayerPassword = CALayer()
         bottomLayerPassword.frame = CGRect(x: 0, y: 29, width: 1000, height: 0.6)
@@ -73,5 +74,8 @@ class SignInViewController: UIViewController {
         })
     }
     
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
     
 }

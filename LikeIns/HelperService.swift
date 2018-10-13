@@ -7,47 +7,13 @@
 import Foundation
 import FirebaseStorage
 class HelperService {
-    static func uploadDataToServer(data: Data, videoUrl: URL? = nil, ratio: CGFloat, caption: String, onSuccess: @escaping () -> Void) {
-        if let videoUrl = videoUrl {
-            self.uploadVideoToFirebaseStorage(videoUrl: videoUrl, onSuccess: { (videoUrl) in
-                uploadImageToFirebaseStorage(data: data, onSuccess: { (thumbnailImageUrl) in
-                    sendDataToDatabase(photoUrl: thumbnailImageUrl, videoUrl: videoUrl, ratio: ratio, caption: caption, onSuccess: onSuccess)
-                })
-            })
-            //self.senddatatodatabase
-        } else {
-            uploadImageToFirebaseStorage(data: data) { (photoUrl) in
-                self.sendDataToDatabase(photoUrl: photoUrl, ratio: ratio, caption: caption, onSuccess: onSuccess)
-            }
-        }
-    }
     
-    // rewrite the function and remove the obsoleted function
-    static func uploadVideoToFirebaseStorage(videoUrl: URL, onSuccess: @escaping (_ videoUrl: String) -> Void) {
-        let videoIdString = NSUUID().uuidString
-        let storageRef = Storage.storage().reference(forURL: Config.STORAGE_ROOF_REF).child("posts").child(videoIdString)
-        
-        storageRef.putFile(from: videoUrl, metadata: nil) { (metadata, error) in
-            if error != nil{
-                ProgressHUD.showError(error!.localizedDescription)
-            }
-            storageRef.downloadURL{ (url, error) in
-                guard let videoUrl = url?.absoluteString else {
-                    // Uh-oh, an error occurred!
-                    return
-                }
-                onSuccess(videoUrl)
-            }
+    static func uploadDataToServer(data: Data, videoUrl: URL? = nil, ratio: CGFloat, caption: String, onSuccess: @escaping () -> Void) {
+        // Only upload the Image file, and do not deal with the videos
+        uploadImageToFirebaseStorage(data: data) { (photoUrl) in
+            self.sendDataToDatabase(photoUrl: photoUrl, ratio: ratio, caption: caption, onSuccess: onSuccess)
         }
-        //        storageRef.putFile(from: videoUrl, metadata: nil) { (metadata, error) in
-        //            if error != nil {
-        //                ProgressHUD.showError(error!.localizedDescription)
-        //                return
-        //            }
-        //            if let videoUrl = metadata?.downloadURL()?.absoluteString {
-        //                onSuccess(videoUrl)
-        //            }
-        //        }
+
     }
     
     // rewrite the function and remove the obsoleted function
@@ -67,16 +33,6 @@ class HelperService {
                 onSuccess(photoUrl)
             }
         }
-        
-        //        storageRef.putData(data, metadata: nil) { (metadata, error) in
-        //            if error != nil {
-        //                ProgressHUD.showError(error!.localizedDescription)
-        //                return
-        //            }
-        //            if let photoUrl = metadata?.downloadURL()?.absoluteString {
-        //                onSuccess(photoUrl)
-        //            }
-        
     }
     
     static func sendDataToDatabase(photoUrl: String, videoUrl: String? = nil, ratio: CGFloat, caption: String, onSuccess: @escaping () -> Void) {
@@ -101,10 +57,9 @@ class HelperService {
         }
         
         let currentUserId = currentUser.uid
+        // let date = Date()
         var dict = ["uid": currentUserId ,"photoUrl": photoUrl, "caption": caption, "likeCount": 0, "ratio": ratio] as [String : Any]
-        if let videoUrl = videoUrl {
-            dict["videoUrl"] = videoUrl
-        }
+
         newPostReference.setValue(dict, withCompletionBlock: {
             (error, ref) in
             if error != nil {

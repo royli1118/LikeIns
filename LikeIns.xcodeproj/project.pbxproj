@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		07885BA989913039209F4E9B /* Pods_LikeIns.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92581B42FBD459F0CF0FB92D /* Pods_LikeIns.framework */; };
+		B03332B92171E5DC0074AB88 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03332B82171E5DC0074AB88 /* StartViewController.swift */; };
+		B03332BB2171E74C0074AB88 /* aurola.gif in Resources */ = {isa = PBXBuildFile; fileRef = B03332BA2171E74C0074AB88 /* aurola.gif */; };
+		B03332BE2171E82C0074AB88 /* iOSDevCenters+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03332BD2171E82C0074AB88 /* iOSDevCenters+GIF.swift */; };
 		FC0A41071E1047B800510BC7 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0A41061E1047B800510BC7 /* Post.swift */; };
 		FC1912A21E22254B00D4CEF2 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1912A11E22254B00D4CEF2 /* Comment.swift */; };
 		FC1912AA1E2254D700D4CEF2 /* PostApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1912A91E2254D700D4CEF2 /* PostApi.swift */; };
@@ -60,6 +63,9 @@
 		276B03071E93D0AB7E6993F8 /* Pods-InstagramClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramClone.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramClone/Pods-InstagramClone.release.xcconfig"; sourceTree = "<group>"; };
 		92581B42FBD459F0CF0FB92D /* Pods_LikeIns.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LikeIns.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		959EFA508297D1AA4BCC0369 /* Pods-LikeIns.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LikeIns.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LikeIns/Pods-LikeIns.debug.xcconfig"; sourceTree = "<group>"; };
+		B03332B82171E5DC0074AB88 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		B03332BA2171E74C0074AB88 /* aurola.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = aurola.gif; sourceTree = "<group>"; };
+		B03332BD2171E82C0074AB88 /* iOSDevCenters+GIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "iOSDevCenters+GIF.swift"; sourceTree = "<group>"; };
 		B0E6E2DC213E56000091E1C3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C76A4531CC6BD68E7F981AF5 /* Pods-InstagramClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramClone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramClone/Pods-InstagramClone.debug.xcconfig"; sourceTree = "<group>"; };
 		E404BEB81CBC013A9D7D8808 /* Pods-LikeIns.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LikeIns.release.xcconfig"; path = "Pods/Target Support Files/Pods-LikeIns/Pods-LikeIns.release.xcconfig"; sourceTree = "<group>"; };
@@ -145,6 +151,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B03332BC2171E81B0074AB88 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B03332BD2171E82C0074AB88 /* iOSDevCenters+GIF.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		B0D75496214168DA00C57895 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,7 +169,7 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		FC09DF9D1DFC45170047703F /* Storyboards */ = {
+		FC09DF9D1DFC45170047703F /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				FCE72C1C1DEB5E060055E3DB /* Start.storyboard */,
@@ -166,10 +180,10 @@
 				FCD1D84D1DF726B50027705F /* Discover.storyboard */,
 				FCD1D84B1DF7265C0027705F /* Home.storyboard */,
 			);
-			name = Storyboards;
+			name = Views;
 			sourceTree = "<group>";
 		};
-		FC09DF9E1DFC45280047703F /* ViewControllers */ = {
+		FC09DF9E1DFC45280047703F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				FCE8FA2E1DEDF11D00420D84 /* SignInViewController.swift */,
@@ -186,8 +200,9 @@
 				FC5C07FC1E3D1B4600DB406E /* PeopleViewController.swift */,
 				FCF75E361E4F75F4001E6276 /* SettingTableViewController.swift */,
 				FC21A5E31E61CF97009F3802 /* DetailViewController.swift */,
+				B03332B82171E5DC0074AB88 /* StartViewController.swift */,
 			);
-			name = ViewControllers;
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		FC0A41051E1047AA00510BC7 /* Model */ = {
@@ -216,6 +231,7 @@
 		FCE72BFE1DEB5C710055E3DB = {
 			isa = PBXGroup;
 			children = (
+				B03332BA2171E74C0074AB88 /* aurola.gif */,
 				B0E6E2DC213E56000091E1C3 /* README.md */,
 				FC172FB41E0568280021C813 /* LinkIns-Bridging-Header.h */,
 				FCE72C091DEB5C710055E3DB /* LikeIns */,
@@ -236,6 +252,7 @@
 		FCE72C091DEB5C710055E3DB /* LikeIns */ = {
 			isa = PBXGroup;
 			children = (
+				B03332BC2171E81B0074AB88 /* Utils */,
 				FCE72C0A1DEB5C710055E3DB /* AppDelegate.swift */,
 				FC1BB9C41E04782E009EA83B /* AuthService.swift */,
 				FC5C07F51E39345D00DB406E /* HelperService.swift */,
@@ -252,8 +269,8 @@
 				FCE04C4D1E157F6A007D7A19 /* Views */,
 				FC0A41051E1047AA00510BC7 /* Model */,
 				B0D75496214168DA00C57895 /* Resources */,
-				FC09DF9E1DFC45280047703F /* ViewControllers */,
-				FC09DF9D1DFC45170047703F /* Storyboards */,
+				FC09DF9E1DFC45280047703F /* Controllers */,
+				FC09DF9D1DFC45170047703F /* Views */,
 				FCE72C131DEB5C710055E3DB /* LaunchScreen.storyboard */,
 			);
 			path = LikeIns;
@@ -330,6 +347,7 @@
 				FC8E838A1DF421DD0007B18E /* Main.storyboard in Resources */,
 				FCD1D8541DF727310027705F /* Profile.storyboard in Resources */,
 				FCE4AAF41DFC4E9A0088E503 /* GoogleService-Info.plist in Resources */,
+				B03332BB2171E74C0074AB88 /* aurola.gif in Resources */,
 				FCD1D84E1DF726B50027705F /* Discover.storyboard in Resources */,
 				FCD1D8521DF727070027705F /* Activity.storyboard in Resources */,
 			);
@@ -345,6 +363,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-LikeIns/Pods-LikeIns-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/KILabel/KILabel.framework",
@@ -355,6 +374,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KILabel.framework",
@@ -407,6 +427,7 @@
 				FCD741C21E6AE2FB0006C6A8 /* FilterCollectionViewCell.swift in Sources */,
 				FCF75E351E4E478D001E6276 /* ProfileUserViewController.swift in Sources */,
 				FC7A00F51E4238240023D404 /* FeedApi.swift in Sources */,
+				B03332B92171E5DC0074AB88 /* StartViewController.swift in Sources */,
 				FC1912B01E22572400D4CEF2 /* CommentApi.swift in Sources */,
 				FCC1A6FB1E194E240081C106 /* CommentViewController.swift in Sources */,
 				FCD741C01E6AE0D60006C6A8 /* FilterViewController.swift in Sources */,
@@ -415,6 +436,7 @@
 				FCE04C4F1E159DE0007D7A19 /* UserProfile.swift in Sources */,
 				FC6BE14F1E2B8D5400F0EB21 /* MyPostsApi.swift in Sources */,
 				FC23C40D1E3E931900985F49 /* FollowApi.swift in Sources */,
+				B03332BE2171E82C0074AB88 /* iOSDevCenters+GIF.swift in Sources */,
 				FCF75E371E4F75F4001E6276 /* SettingTableViewController.swift in Sources */,
 				FCBCDBFC1DF4198100940D18 /* HomeViewController.swift in Sources */,
 				FCBCDC021DF419BD00940D18 /* ActivityViewController.swift in Sources */,

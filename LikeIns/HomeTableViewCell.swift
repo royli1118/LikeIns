@@ -27,12 +27,8 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var likeCountButton: UIButton!
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var heightConstraintPhoto: NSLayoutConstraint!
-    @IBOutlet weak var volumeView: UIView!
-    @IBOutlet weak var volumeButton: UIButton!
     
     var delegate: HomeTableViewCellDelegate?
-    var player: AVPlayer?
-    var playerLayer: AVPlayerLayer?
     var post: Post? {
         didSet {
             updateView()
@@ -45,8 +41,6 @@ class HomeTableViewCell: UITableViewCell {
         }
     }
     
-    var isMuted = true
-    
     func updateView() {
         captionLabel.text = post?.caption
         if let ratio = post?.ratio {
@@ -58,30 +52,8 @@ class HomeTableViewCell: UITableViewCell {
             let photoUrl = URL(string: photoUrlString)
             postImageView.sd_setImage(with: photoUrl)
         }
-        if let videoUrlString = post?.videoUrl, let videoUrl = URL(string: videoUrlString) {
-            self.volumeView.isHidden = false
-            player = AVPlayer(url: videoUrl)
-            playerLayer = AVPlayerLayer(player: player)
-            playerLayer?.frame = postImageView.frame
-            playerLayer?.frame.size.width = UIScreen.main.bounds.width
-            self.contentView.layer.addSublayer(playerLayer!)
-            self.volumeView.layer.zPosition = 1
-            player?.play()
-            player?.isMuted = isMuted
-        }
         
         self.updateLike(post: self.post!)
-    }
-    @IBAction func volumeButton_TouchUpInSide(_ sender: UIButton) {
-        if isMuted {
-            isMuted = !isMuted
-            volumeButton.setImage(UIImage(named: "Icon_Volume"), for: UIControl.State.normal)
-        } else {
-            isMuted = !isMuted
-            volumeButton.setImage(UIImage(named: "Icon_Mute"), for: UIControl.State.normal)
-            
-        }
-        player?.isMuted = isMuted
     }
     
     func updateLike(post: Post) {
@@ -143,7 +115,7 @@ class HomeTableViewCell: UITableViewCell {
         }) { (errorMessage) in
             ProgressHUD.showError(errorMessage)
         }
-        //incrementLikes(forRef: postRef)
+        
     }
     
     @objc func commentImageView_TouchUpInside() {
@@ -156,9 +128,6 @@ class HomeTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         profileImageView.image = UIImage(named: "placeholderImg")
-        playerLayer?.removeFromSuperlayer()
-        player?.pause()
-        self.volumeView.isHidden = true
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
