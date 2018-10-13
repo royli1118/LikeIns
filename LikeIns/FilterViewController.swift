@@ -31,6 +31,7 @@ class FilterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         filterPhoto.image = selectedImage
         filterPhoto.contentMode = .scaleAspectFill
         // Do any additional setup after loading the view.

@@ -25,8 +25,6 @@ class CameraViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleSelectPhoto))
         photo.addGestureRecognizer(tapGesture)
         photo.isUserInteractionEnabled = true
-
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,7 +70,7 @@ class CameraViewController: UIViewController {
     func showImagePickerForSourceType(_ sourceType: UIImagePickerController.SourceType) {
         
         DispatchQueue.main.async(execute: {
-            //imagePicker.modalPresentationStyle = .currentContext
+            //self.imagePicker.modalPresentationStyle = .currentContext
             self.imagePicker.sourceType = sourceType
             self.imagePicker.delegate = self
             self.imagePicker.allowsEditing = true
@@ -134,13 +132,12 @@ class CameraViewController: UIViewController {
     }
     
 }
+
+// MARK: ImagePicker delegate function
 extension CameraViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         print("did Finish Picking Media")
-        print(info)
-        
-    
-        if let image = info["UIImagePickerControllerEditedImage"] as? UIImage{
+        if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             selectedImage = image
             photo.image = image
             dismiss(animated: true, completion: {
