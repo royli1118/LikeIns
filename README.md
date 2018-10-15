@@ -15,7 +15,7 @@ Reference: http://zero2launch.io/p/swift-4-firebase-4-clone-instagram
 
 After done the previous work, 
 
-![alt text](https://github.com/royli1118/LikeIns/SignInformation.png)
+![alt text](https://github.com/royli1118/LikeIns/blob/master/SignInformation.png)
 
 Please select the automatically manage signing.
 Please add an developer account in the Xcode, and select a team.
