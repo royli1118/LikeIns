@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		07885BA989913039209F4E9B /* Pods_LikeIns.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92581B42FBD459F0CF0FB92D /* Pods_LikeIns.framework */; };
+		B00EC0342174842600E6D909 /* SignInformation.png in Resources */ = {isa = PBXBuildFile; fileRef = B00EC0332174842600E6D909 /* SignInformation.png */; };
 		B03332B92171E5DC0074AB88 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03332B82171E5DC0074AB88 /* StartViewController.swift */; };
 		B03332BB2171E74C0074AB88 /* aurola.gif in Resources */ = {isa = PBXBuildFile; fileRef = B03332BA2171E74C0074AB88 /* aurola.gif */; };
 		B03332BE2171E82C0074AB88 /* iOSDevCenters+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03332BD2171E82C0074AB88 /* iOSDevCenters+GIF.swift */; };
@@ -63,6 +64,7 @@
 		276B03071E93D0AB7E6993F8 /* Pods-InstagramClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramClone.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramClone/Pods-InstagramClone.release.xcconfig"; sourceTree = "<group>"; };
 		92581B42FBD459F0CF0FB92D /* Pods_LikeIns.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LikeIns.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		959EFA508297D1AA4BCC0369 /* Pods-LikeIns.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LikeIns.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LikeIns/Pods-LikeIns.debug.xcconfig"; sourceTree = "<group>"; };
+		B00EC0332174842600E6D909 /* SignInformation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SignInformation.png; sourceTree = "<group>"; };
 		B03332B82171E5DC0074AB88 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		B03332BA2171E74C0074AB88 /* aurola.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = aurola.gif; sourceTree = "<group>"; };
 		B03332BD2171E82C0074AB88 /* iOSDevCenters+GIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "iOSDevCenters+GIF.swift"; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 		FCE72BFE1DEB5C710055E3DB = {
 			isa = PBXGroup;
 			children = (
+				B00EC0332174842600E6D909 /* SignInformation.png */,
 				B03332BA2171E74C0074AB88 /* aurola.gif */,
 				B0E6E2DC213E56000091E1C3 /* README.md */,
 				FC172FB41E0568280021C813 /* LinkIns-Bridging-Header.h */,
@@ -310,7 +313,6 @@
 				TargetAttributes = {
 					FCE72C061DEB5C710055E3DB = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 7QPHFNW5DN;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
@@ -340,6 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCE72C151DEB5C710055E3DB /* LaunchScreen.storyboard in Resources */,
+				B00EC0342174842600E6D909 /* SignInformation.png in Resources */,
 				FCD1D8501DF726DE0027705F /* Camera.storyboard in Resources */,
 				FCD1D84C1DF7265C0027705F /* Home.storyboard in Resources */,
 				FCE72C121DEB5C710055E3DB /* Assets.xcassets in Resources */,
@@ -583,7 +586,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 7QPHFNW5DN;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/LikeIns/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -601,7 +604,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 7QPHFNW5DN;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/LikeIns/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
