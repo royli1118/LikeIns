@@ -30,6 +30,7 @@ class HomeViewController: UIViewController {
             }
             self.fetchUser(uid: postUid, completed: {
                 self.posts.append(post)
+               
                 self.tableView.reloadData()
             })
 

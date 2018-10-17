@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -235,8 +235,6 @@
                                             <outlet property="postImageView" destination="3by-Zc-S2L" id="25f-mf-Nw9"/>
                                             <outlet property="profileImageView" destination="TgS-qt-dqv" id="E4j-S2-3Ze"/>
                                             <outlet property="shareImageView" destination="Oke-VU-9C9" id="viD-Yy-Ekb"/>
-                                            <outlet property="volumeButton" destination="2Jb-1M-Ds3" id="oAG-Jh-V1W"/>
-                                            <outlet property="volumeView" destination="VOJ-mG-MKN" id="7J4-Ah-Cpp"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -321,7 +319,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKi-bt-fAn">
-                                                    <rect key="frame" x="260" y="26" width="100" height="29"/>
+                                                    <rect key="frame" x="260" y="25.5" width="100" height="29"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="caw-4J-EZF"/>
                                                     </constraints>
