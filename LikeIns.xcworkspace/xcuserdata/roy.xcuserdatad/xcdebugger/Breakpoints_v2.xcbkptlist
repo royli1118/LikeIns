@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LikeIns/PostApi.swift"
+            timestampString = "561116926.608544"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "observePost(withId:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LikeIns.PostApi.observePost(withId: Swift.String, completion: (LikeIns.Post) -&gt; ()) -&gt; ()"
+                  moduleName = "LikeIns"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/roy/Documents/IOS/LikeIns/LikeIns/PostApi.swift"
+                  timestampString = "561106705.531509"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "39">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.FIRDataSnapshot) -&gt; () in LikeIns.PostApi.observePost(withId: Swift.String, completion: (LikeIns.Post) -&gt; ()) -&gt; ()"
+                  moduleName = "LikeIns"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/roy/Documents/IOS/LikeIns/LikeIns/PostApi.swift"
+                  timestampString = "561106705.53376"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "41">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LikeIns/PostApi.swift"
+            timestampString = "561116926.608615"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "observePost(withId:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LikeIns/HomeViewController.swift"
+            timestampString = "561116926.608669"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LikeIns.HomeViewController.loadPosts() -&gt; ()"
+                  moduleName = "LikeIns"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/roy/Documents/IOS/LikeIns/LikeIns/HomeViewController.swift"
+                  timestampString = "561107453.95278"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "25">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (LikeIns.Post) -&gt; () in LikeIns.HomeViewController.loadPosts() -&gt; ()"
+                  moduleName = "LikeIns"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/roy/Documents/IOS/LikeIns/LikeIns/HomeViewController.swift"
+                  timestampString = "561107453.955109"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "34">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LikeIns/HomeViewController.swift"
+            timestampString = "561116926.608726"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (LikeIns.Post) -&gt; () in LikeIns.HomeViewController.loadPosts() -&gt; ()"
+                  moduleName = "LikeIns"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/roy/Documents/IOS/LikeIns/LikeIns/HomeViewController.swift"
+                  timestampString = "561108009.482024"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "43">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (LikeIns.Post) -&gt; Swift.Bool in closure #2 (LikeIns.Post) -&gt; () in LikeIns.HomeViewController.loadPosts() -&gt; ()"
+                  moduleName = "LikeIns"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/roy/Documents/IOS/LikeIns/LikeIns/HomeViewController.swift"
+                  timestampString = "561108009.4839081"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "34">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
