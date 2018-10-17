@@ -11,7 +11,6 @@ target 'LikeIns' do
   pod 'SDWebImage'
   pod 'KILabel'
   pod 'ProgressHUD'
-  pod 'ChameleonFramework', '~> 2.1'
   # Pods for InstagramClone
 
 end
