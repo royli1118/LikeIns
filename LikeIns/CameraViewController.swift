@@ -14,9 +14,7 @@ class CameraViewController: UIViewController {
     @IBOutlet weak var removeButton: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
-    
     let imagePicker = UIImagePickerController()
-    
     var selectedImage: UIImage?
     var videoUrl: URL?
     override func viewDidLoad() {
