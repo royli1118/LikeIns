@@ -75,6 +75,12 @@ class CameraViewController: UIViewController {
             self.imagePicker.delegate = self
             self.imagePicker.allowsEditing = true
             ////////////////////////////////////////
+            
+            // Utilize the overlay with UIView Added in 19/10/2018
+            var overlayImage = UIImageView(image: UIImage(named: "overlay"))
+            var overlayRect = CGRect(x: 0, y: 0, width: overlayImage.image?.size.width ?? 0.0, height: overlayImage.image?.size.height ?? 0.0)
+            overlayImage.frame = overlayRect
+            self.imagePicker.cameraOverlayView = overlayImage
             /*
              We actually have two delegates:UIImagePickerControllerDelegate and UINavigationControllerDelegate. The UINavigationControllerDelegate is required but we do nothing with it.
              Add the following:
