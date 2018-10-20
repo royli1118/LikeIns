@@ -11,6 +11,8 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    
+    // all the posts
     var posts = [Post]()
     var users = [UserProfile]()
     override func viewDidLoad() {
@@ -22,8 +24,9 @@ class HomeViewController: UIViewController {
         loadPosts()
     }
     
+    // load all posts
     func loadPosts() {
-        
+        // take all posts by post uid, one by one
         Api.Feed.observeFeed(withId: Api.User.CURRENT_USER!.uid) { (post) in
             guard let postUid = post.uid else {
                 return

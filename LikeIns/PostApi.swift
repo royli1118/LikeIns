@@ -8,17 +8,11 @@
 import Foundation
 import FirebaseDatabase
 class PostApi {
+    
+    // This part is the root node in the Database. all the posts will save in this node.
     var REF_POSTS = Database.database().reference().child("posts")
     
-//    func observePosts(completion: @escaping (Post) -> Void) {
-//        REF_POSTS.observe(.childAdded) { (snapshot: DataSnapshot) in
-//            if let dict = snapshot.value as? [String: Any] {
-//                let newPost = Post.transformPostPhoto(dict: dict, key: snapshot.key)
-//                completion(newPost)
-//            }
-//        }
-//    }
-    
+    // Query the node chronologicailly, from the first to last.
     func observePost(withId id: String, completion: @escaping (Post) -> Void) {
         // Check if the Query ordered chronologicailly.
         REF_POSTS.child(id).observeSingleEvent(of: DataEventType.value, with: {

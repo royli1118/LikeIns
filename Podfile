@@ -11,6 +11,6 @@ target 'LikeIns' do
   pod 'SDWebImage'
   pod 'KILabel'
   pod 'ProgressHUD'
-  # Pods for InstagramClone
+  # Pods for LikeIns
 
 end

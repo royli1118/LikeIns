@@ -24,8 +24,8 @@ class UserApi {
             }
         })
     }
-    //                DataService.dataService.USER_REF.queryOrdered(byChild: "username").queryEqual(toValue: "\(mention.lowercased())").observe(.childAdded, with: { snapshot in
-    
+
+    // Query the current User
     func observeUser(withId uid: String, completion: @escaping (UserProfile) -> Void) {
         REF_USERS.child(uid).observeSingleEvent(of: .value, with: {
             snapshot in

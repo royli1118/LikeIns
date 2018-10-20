@@ -39,7 +39,7 @@ class SettingTableViewController: UITableViewController {
     @IBAction func saveBtn_TouchUpInside(_ sender: Any) {
         if let profileImg = self.profileImageView.image, let imageData = profileImg.jpegData(compressionQuality: 0.1) {
             ProgressHUD.show("Waiting...")
-            AuthService.updateUserInfor(username: usernnameTextField.text!, email: emailTextField.text!, imageData: imageData, onSuccess: {
+            AuthService.updateUserInfo(username: usernnameTextField.text!, email: emailTextField.text!, imageData: imageData, onSuccess: {
                 ProgressHUD.showSuccess("Success")
                 self.delegate?.updateUserInfor()
             }, onError: { (errorMessage) in
@@ -68,7 +68,6 @@ class SettingTableViewController: UITableViewController {
 extension SettingTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        print("did Finish Picking Media")
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
             profileImageView.image = image
         }
@@ -83,46 +82,3 @@ extension SettingTableViewController: UITextFieldDelegate {
         return true
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

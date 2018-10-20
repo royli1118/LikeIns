@@ -25,6 +25,7 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var commentImageView: UIImageView!
     @IBOutlet weak var shareImageView: UIImageView!
     @IBOutlet weak var likeCountButton: UIButton!
+    
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var heightConstraintPhoto: NSLayoutConstraint!
     
@@ -63,8 +64,19 @@ class HomeTableViewCell: UITableViewCell {
         guard let count = post.likeCount else {
             return
         }
+        guard let people = post.likes else {
+            return
+        }
+        var wholikeLabel : String = ""
+        for eachPeople in people {
+            Api.User.observeUser(withId: eachPeople.key, completion: {
+                user in
+                    wholikeLabel.append(user.username!)
+            })
+            
+        }
         if count != 0 {
-            likeCountButton.setTitle("\(count) likes", for: UIControl.State.normal)
+            likeCountButton.setTitle("\(count) likes \(wholikeLabel)", for: UIControl.State.normal)
         } else {
             likeCountButton.setTitle("Be the first like this", for: UIControl.State.normal)
         }

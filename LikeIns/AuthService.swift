@@ -44,25 +44,6 @@ class AuthService {
                 }
             }
         }
-        
-        //        FIRAuth.auth().createUser(withEmail: email, password: password, completion: { (user: UserProfile?, error: Error?) in
-        //            if error != nil {
-        //                onError(error!.localizedDescription)
-        //                return
-        //            }
-        //            let uid = user?.uid
-        //            let storageRef = FIRStorage.storage().reference(forURL: Config.STORAGE_ROOF_REF).child("profile_image").child(uid!)
-        //
-        //            storageRef.put(imageData, metadata: nil, completion: { (metadata, error) in
-        //                if error != nil {
-        //                    return
-        //                }
-        //                let profileImageUrl = metadata?.downloadURL()?.absoluteString
-        //
-        //                self.setUserInfomation(profileImageUrl: profileImageUrl!, username: username, email: email, uid: uid!, onSuccess: onSuccess)
-        //            })
-        //        })
-        
     }
     
     static func setUserInfomation(profileImageUrl: String, username: String, email: String, uid: String, onSuccess: @escaping () -> Void) {
@@ -73,7 +54,7 @@ class AuthService {
         onSuccess()
     }
     
-    static func updateUserInfor(username: String, email: String, imageData: Data, onSuccess: @escaping () -> Void, onError:  @escaping (_ errorMessage: String?) -> Void) {
+    static func updateUserInfo(username: String, email: String, imageData: Data, onSuccess: @escaping () -> Void, onError:  @escaping (_ errorMessage: String?) -> Void) {
         
         Api.User.CURRENT_USER?.updateEmail(to: email, completion: { (error) in
             if error != nil {

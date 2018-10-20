@@ -23,6 +23,8 @@ class CameraViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleSelectPhoto))
         photo.addGestureRecognizer(tapGesture)
         photo.isUserInteractionEnabled = true
+        captionTextView.text = "Caption text here!"
+        captionTextView.textColor = UIColor.lightGray
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -168,5 +170,19 @@ extension CameraViewController: FilterViewControllerDelegate {
     func updatePhoto(image: UIImage) {
         self.photo.image = image
         self.selectedImage = image
+    }
+}
+extension CameraViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Caption Text here!"
+            textView.textColor = UIColor.lightGray
+        }
     }
 }
